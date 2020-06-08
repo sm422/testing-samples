@@ -1,11 +1,11 @@
 import {DateTime} from 'luxon';
 import React from 'react';
 
-function Timer(props){
-  const [hours, updateHours] = React.useState('0');
-  const [minutes, updateMinutes] = React.useState('00');
-  const [seconds, updateSeconds] = React.useState('00');
-  const endDate = DateTime.fromISO(`${props.date}T00:00:00`)
+function Timer(props) {
+  const [hours, updateHours] = React.useState();
+  const [minutes, updateMinutes] = React.useState();
+  const [seconds, updateSeconds] = React.useState();
+  const endDate = DateTime.fromISO(`${props.date}T00:00:00`);
   let interval;
 
   const updateTimer = () => {
@@ -17,11 +17,16 @@ function Timer(props){
   }
 
   React.useEffect(() => {
+    updateTimer();
     interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
-  })
+  });
 
-  return(<b>{hours}:{minutes}:{seconds}</b>);
+  return (
+    <div data-testid="Timer">
+      <b>{hours}:{minutes}:{seconds}</b>
+    </div>
+  );
 }
 
 export default Timer;
