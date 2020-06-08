@@ -1,7 +1,7 @@
 import React from 'react';
 
 function DatePicker(props){
-  const [formDate, updateFormDate] = React.useState()
+  const [formDate, updateFormDate] = React.useState();
 
   function handleDateChange(event){
     updateFormDate(event.target.value);
