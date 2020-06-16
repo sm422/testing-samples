@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Timer from './Timer.js';
-import DatePicker from './DatePicker';
+import Timer from '../Timer/Timer';
+import DatePicker from '../DatePicker/DatePicker';
 
 function App() {
   const [date, updateDate] = React.useState();
@@ -11,7 +11,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" data-testid="Page Container">
         <DatePicker setDate={setDate}/>
         {date && <Timer date={date}/>}
     </div>
